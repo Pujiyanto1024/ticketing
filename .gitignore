@@ -1,0 +1,11 @@
+#Auth
+# dependencies
+/auth/node_modules
+/auth/.pnp
+/auth/.pnp.js
+
+# testing
+/auth/coverage
+
+# production
+/auth/build
