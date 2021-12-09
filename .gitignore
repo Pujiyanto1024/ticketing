@@ -4,8 +4,24 @@
 /auth/.pnp
 /auth/.pnp.js
 
+
 # testing
 /auth/coverage
 
 # production
 /auth/build
+
+
+#client
+# dependencies
+/client/node_modules
+/client/.pnp
+/client/.pnp.js
+
+
+# testing
+/client/coverage
+
+# production
+/client/build
+/client/.next

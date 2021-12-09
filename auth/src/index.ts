@@ -31,11 +31,15 @@ app.all("*", async(req, res) => {
 app.use(errorHandler);
 
 const startUp = async() => {
-  if (!process.env.JWT_KEY) {
-    throw new Error('Error ENV');
-  }
+  // if (!process.env.JWT_KEY) {
+  //   throw new Error('Error ENV');
+  // }
   try {
-    await mongoose.connect("mongodb://auth-mongo-srv:27017/auth");
+    //local
+    await mongoose.connect("mongodb://127.0.0.1:27017/auth");
+
+    //ingress-nginx
+    // await mongoose.connect("mongodb://auth-mongo-srv:27017/auth");
     console.log("mongo connected");
   } catch(e) {
     console.error(e);
