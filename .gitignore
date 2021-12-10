@@ -12,6 +12,20 @@
 /auth/build
 
 
+#Tickets
+# dependencies
+/tickets/node_modules
+/tickets/.pnp
+/tickets/.pnp.js
+
+
+# testing
+/tickets/coverage
+
+# production
+/tickets/build
+
+
 #client
 # dependencies
 /client/node_modules
