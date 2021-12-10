@@ -3,6 +3,7 @@ import 'express-async-errors';
 import { json } from 'body-parser';
 import mongoose from 'mongoose';
 import cookieSession from "cookie-session";
+import cors from 'cors';
 
 import { currentUserRouter } from "./routes/current-user";
 import { signinRouter } from "./routes/signin";
@@ -12,6 +13,7 @@ import { errorHandler } from "./middlewares/error-handler";
 import { NotFoundError } from "./errors/not-found-error";
 
 const app = express();
+// app.use(cors());
 app.set('trust proxy', true);
 app.use(json());
 app.use(cookieSession({
@@ -31,15 +33,15 @@ app.all("*", async(req, res) => {
 app.use(errorHandler);
 
 const startUp = async() => {
-  // if (!process.env.JWT_KEY) {
-  //   throw new Error('Error ENV');
-  // }
+  if (!process.env.JWT_KEY) {
+    throw new Error('Error ENV');
+  }
   try {
     //local
-    await mongoose.connect("mongodb://127.0.0.1:27017/auth");
+    // await mongoose.connect("mongodb://127.0.0.1:27017/auth");
 
     //ingress-nginx
-    // await mongoose.connect("mongodb://auth-mongo-srv:27017/auth");
+    await mongoose.connect("mongodb://auth-mongo-srv:27017/auth");
     console.log("mongo connected");
   } catch(e) {
     console.error(e);
