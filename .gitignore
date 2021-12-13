@@ -12,6 +12,19 @@
 /auth/build
 
 
+#Nats-Test
+# dependencies
+/nats-test/node_modules
+/nats-test/.pnp
+/nats-test/.pnp.js
+
+
+# testing
+/nats-test/coverage
+
+# production
+/nats-test/build
+
 #Tickets
 # dependencies
 /tickets/node_modules
