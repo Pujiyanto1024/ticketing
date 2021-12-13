@@ -11,6 +11,9 @@ import { currentUser } from "./middlewares/current-user";
 import { NotFoundError } from "./errors/not-found-error";
 
 import { createTicketRouter } from "./routes/create-tickets";
+import { showTicketRouter } from "./routes/show-tickets";
+import { indexTicketRouter } from "./routes/index";
+import { updateTicketRouter } from "./routes/update-ticket";
 
 const app = express();
 // app.use(cors());
@@ -24,6 +27,9 @@ app.use(cookieSession({
 app.use(currentUser);
 
 app.use(createTicketRouter);
+app.use(showTicketRouter);
+app.use(indexTicketRouter);
+app.use(updateTicketRouter);
 
 app.all("*", async(req, res) => {
   throw new NotFoundError();
