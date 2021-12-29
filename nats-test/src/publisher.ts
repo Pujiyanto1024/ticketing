@@ -22,3 +22,4 @@ stan.on('connect', () => {
 
 //before start publisher or listener, must create port forwarding on kubernetes
 // kubectl port-forward <pod name> <port kubernetes>:<expected port>
+// monitoring => localhost:8222/streaming
